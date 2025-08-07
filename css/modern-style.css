@@ -1,0 +1,513 @@
+ /* ----------------------------------------------------------------
+            [Arquivo de Estilo Moderno para AtriumDesign]
+            - Versão com Layout 100% Responsivo e Ícones Corrigidos
+        ------------------------------------------------------------------- */
+
+ /* Reset Básico e Variáveis Globais */
+ :root {
+     --primary-color: #0d2c4f;
+     --secondary-color: #E63618;
+     --text-color: #333;
+     --background-color: #ffffff;
+     --light-gray-color: #f7f7f7;
+     --font-primary: 'Roboto', sans-serif;
+     --font-secondary: 'Montserrat', sans-serif;
+ }
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: var(--font-primary);
+     color: var(--text-color);
+     background-color: var(--background-color);
+     line-height: 1.6;
+ }
+
+ .container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 20px;
+ }
+
+ a {
+     text-decoration: none;
+     color: var(--primary-color);
+     transition: color 0.3s ease;
+ }
+
+ a:hover {
+     color: var(--secondary-color);
+ }
+
+ img {
+     max-width: 100%;
+     height: auto;
+     display: block;
+ }
+
+ .section-title {
+     font-family: var(--font-secondary);
+     font-size: 2.5rem;
+     color: var(--primary-color);
+     text-align: center;
+     margin-bottom: 50px;
+ }
+
+ /* Cabeçalho */
+ .main-header {
+     background: var(--background-color);
+     padding: 15px 0;
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .main-header .container {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .main-header .logo {
+     font-family: var(--font-secondary);
+     font-weight: 700;
+     font-size: 1.8rem;
+     color: var(--primary-color);
+     z-index: 10;
+ }
+
+ .main-header .main-nav ul {
+     list-style: none;
+     display: flex;
+     gap: 25px;
+ }
+
+ .main-header .main-nav a {
+     font-weight: 500;
+     font-size: 1rem;
+     text-transform: uppercase;
+ }
+
+ .header-whatsapp {
+     background-color: var(--secondary-color);
+     color: #fff;
+     padding: 10px 20px;
+     border-radius: 5px;
+     font-weight: 700;
+     transition: background-color 0.3s ease;
+ }
+
+ .header-whatsapp:hover {
+     background-color: #c42f14;
+     color: #fff;
+ }
+
+ .header-whatsapp .fa-whatsapp {
+     margin-right: 8px;
+ }
+
+ /* Seção Herói (Apenas Carrossel) */
+ .hero-section {
+     height: 55vh;
+     /* Altura ajustada */
+     position: relative;
+     background-color: #333;
+     /* Cor de fundo enquanto as imagens carregam */
+     overflow: hidden;
+ }
+
+ .slideshow-container {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 1;
+ }
+
+ .hero-slide {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-size: cover;
+     background-position: center;
+     opacity: 0;
+     transition: opacity 1.5s ease-in-out;
+     z-index: 1;
+ }
+
+ .hero-slide.active {
+     opacity: 1;
+     z-index: 2;
+ }
+
+ .hero-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.3);
+     z-index: 3;
+ }
+
+ /* Seção da Faixa de Mensagem */
+ .message-strip-section {
+     background-color: var(--light-gray-color);
+     padding: 50px 20px;
+     text-align: center;
+     border-bottom: 1px solid #e0e0e0;
+ }
+
+ .message-strip-section h1 {
+     font-family: var(--font-secondary);
+     font-size: 2.8rem;
+     font-weight: 700;
+     color: var(--primary-color);
+     margin-bottom: 10px;
+ }
+
+ .message-strip-section p {
+     font-size: 1.1rem;
+     color: var(--text-color);
+     max-width: 600px;
+     margin: 0 auto;
+ }
+
+ /* Botões */
+ .btn-primary,
+ .btn-secondary {
+     display: inline-block;
+     padding: 12px 30px;
+     font-family: var(--font-secondary);
+     font-weight: 700;
+     border-radius: 5px;
+     text-align: center;
+     transition: all 0.3s ease;
+ }
+
+ .btn-primary {
+     background-color: var(--secondary-color);
+     color: #fff;
+ }
+
+ .btn-primary:hover {
+     background-color: #c42f14;
+     color: #fff;
+     transform: translateY(-2px);
+ }
+
+ .btn-secondary {
+     background-color: transparent;
+     color: var(--primary-color);
+     border: 2px solid var(--primary-color);
+ }
+
+ .btn-secondary:hover {
+     background-color: var(--primary-color);
+     color: #fff;
+ }
+
+ /* Seção de Produtos */
+ .products-section {
+     padding: 80px 0;
+ }
+
+ .products-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 30px;
+ }
+
+ .product-card {
+     background-color: var(--background-color);
+     border: 1px solid #eee;
+     border-radius: 8px;
+     overflow: hidden;
+     text-align: center;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+
+ .product-card a {
+     display: block;
+     padding-bottom: 25px;
+     color: var(--text-color);
+ }
+
+ .product-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+ }
+
+ .product-card img {
+     width: 100%;
+     height: 200px;
+     object-fit: cover;
+     margin-bottom: 20px;
+ }
+
+ .product-card h3 {
+     font-family: var(--font-secondary);
+     font-size: 1.5rem;
+     color: var(--primary-color);
+     margin-bottom: 10px;
+ }
+
+ .product-card p {
+     padding: 0 20px;
+     margin-bottom: 20px;
+     min-height: 50px;
+ }
+
+ /* Seções de Galeria, Clientes, CTA, Rodapé e WhatsApp */
+ .gallery-section {
+     padding: 80px 0;
+     background-color: var(--light-gray-color);
+ }
+
+ .gallery-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 15px;
+ }
+
+ .gallery-item {
+     border-radius: 8px;
+     overflow: hidden;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease;
+ }
+
+ .gallery-item:hover {
+     transform: scale(1.05);
+ }
+
+ .clients-section {
+     padding: 80px 0;
+ }
+
+
+ .clients-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(160px, 3fr));
+     gap: 40px;
+     align-items: center;
+ }
+
+ .clients-grid img {
+     max-width: 190px;
+     max-height: 90px;
+     margin: 0 auto;
+     object-fit: contain;
+     filter: grayscale(100%);
+     opacity: 0.7;
+     transition: all 0.3s ease;
+ }
+
+ .clients-grid img:hover {
+     filter: grayscale(0%);
+     opacity: 1;
+ }
+
+ .center-button {
+     text-align: center;
+     margin-top: 50px;
+ }
+
+ .cta-section {
+     background-color: var(--primary-color);
+     color: #fff;
+     padding: 60px 20px;
+     text-align: center;
+ }
+
+ .cta-section h4 {
+     font-family: var(--font-secondary);
+     font-size: 2rem;
+     margin-bottom: 10px;
+ }
+
+ .cta-section p {
+     margin-bottom: 30px;
+ }
+
+ .main-footer-bottom {
+     background-color: #111;
+     color: #ccc;
+     padding: 60px 0 20px 0;
+ }
+
+ .footer-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 40px;
+     margin-bottom: 40px;
+ }
+
+ .footer-column h4 {
+     font-family: var(--font-secondary);
+     color: #fff;
+     font-size: 1.2rem;
+     margin-bottom: 20px;
+ }
+
+ .address-list,
+ .footer-nav {
+     list-style: none;
+ }
+
+ .address-list li,
+ .footer-nav li {
+     margin-bottom: 10px;
+ }
+
+ .address-list a,
+ .footer-nav a {
+     color: #ccc;
+ }
+
+ .address-list a:hover,
+ .footer-nav a:hover {
+     color: #fff;
+ }
+
+ .social-links a {
+     color: #ccc;
+     font-size: 2rem;
+     margin-right: 15px;
+ }
+
+ .social-links a:hover {
+     color: var(--secondary-color);
+ }
+
+ .footer-copyright {
+     text-align: center;
+     padding-top: 20px;
+     border-top: 1px solid #333;
+     font-size: 0.9rem;
+ }
+
+ .whatsapp-float-right {
+     position: fixed;
+     bottom: 25px;
+     right: 25px;
+     z-index: 100;
+ }
+
+ .whatsapp-float-right img {
+     height: 60px;
+     width: 60px;
+     transition: transform 0.3s ease;
+ }
+
+ .whatsapp-float-right:hover img {
+     transform: scale(1.1);
+ }
+
+ /* Menu Hambúrguer e Navegação Mobile */
+ .hamburger-menu {
+     display: none;
+     flex-direction: column;
+     justify-content: space-around;
+     width: 30px;
+     height: 25px;
+     background: transparent;
+     border: none;
+     cursor: pointer;
+     padding: 0;
+     z-index: 10;
+ }
+
+ .hamburger-line {
+     width: 30px;
+     height: 3px;
+     background-color: var(--primary-color);
+     border-radius: 5px;
+     transition: all 0.3s linear;
+ }
+
+ /* Ponto de quebra principal para tablets e mobile */
+ @media (max-width: 992px) {
+     .hamburger-menu {
+         display: flex;
+     }
+
+     .header-whatsapp {
+         display: none;
+     }
+
+     .main-nav {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100vh;
+         background-color: rgba(255, 255, 255, 0.98);
+         backdrop-filter: blur(5px);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         transform: translateX(100%);
+         transition: transform 0.3s ease-in-out;
+     }
+
+     .main-nav.active {
+         transform: translateX(0);
+     }
+
+     .main-nav ul {
+         flex-direction: column;
+         text-align: center;
+         gap: 30px;
+     }
+
+     .main-nav a {
+         font-size: 1.5rem;
+     }
+
+     .hamburger-menu.active .hamburger-line:nth-child(1) {
+         transform: rotate(45deg) translate(7px, 7px);
+     }
+
+     .hamburger-menu.active .hamburger-line:nth-child(2) {
+         opacity: 0;
+     }
+
+     .hamburger-menu.active .hamburger-line:nth-child(3) {
+         transform: rotate(-45deg) translate(7px, -7px);
+     }
+
+     .footer-grid {
+         text-align: center;
+     }
+ }
+
+ /* Ajustes finos para celulares */
+ @media (max-width: 768px) {
+
+     .section-title,
+     .cta-section h4 {
+         font-size: 2rem;
+     }
+
+     .message-strip-section h1 {
+         font-size: 2.2rem;
+     }
+
+     .hero-section {
+         height: 40vh;
+     }
+     .gallery-grid{
+            padding-left: 57px;
+
+     }
+ }

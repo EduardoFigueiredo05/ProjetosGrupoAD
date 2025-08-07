@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Meta-Medium';
+  src: url('Meta-Medium.ttf');
+  src: url('Meta-Medium?#iefix') format('embedded-opentype'),
+    url('Meta-Medium.svg#Locaweb-Icons') format('svg'),
+    url('Meta-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.moveis {
+	color: #E63618;
+	font: Meta-Medium;
+	
+}
