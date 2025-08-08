@@ -119,3 +119,32 @@ function addAnimation() {
     });
 }
 
+// --- Lógica da Galeria Interativa (Página Móveis) ---
+const galleryContainer = document.querySelector('.interactive-gallery-section');
+
+if (galleryContainer) {
+    const mainImage = document.getElementById('main-gallery-image');
+    const thumbnails = document.querySelectorAll('.thumbnail-item');
+
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+            // Remove a classe 'active' de todos os thumbnails
+            thumbnails.forEach(item => item.classList.remove('active'));
+            // Adiciona a classe 'active' ao thumbnail clicado
+            thumb.classList.add('active');
+
+            const newImageSrc = thumb.getAttribute('data-image');
+            
+            // Adiciona um efeito de fade out na imagem atual
+            mainImage.style.opacity = '0';
+
+            // Troca a imagem após o fade out
+            setTimeout(() => {
+                mainImage.src = newImageSrc;
+                // Adiciona um efeito de fade in na nova imagem
+                mainImage.style.opacity = '1';
+            }, 300); // O tempo deve corresponder à transição no CSS
+        });
+    });
+}
+

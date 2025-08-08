@@ -1,0 +1,167 @@
+/* ----------------------------------------------------------------
+   [Estilos Específicos para a Página "Móveis"]
+------------------------------------------------------------------- */
+
+/* Cabeçalho da Página (reutilizável) */
+.page-header-section {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.page-header-section h1 {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.page-header-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Galeria Interativa de Ambientes */
+.interactive-gallery-section {
+    padding: 80px 0;
+}
+
+.gallery-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.main-image-display {
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.main-image-display img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.thumbnail-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.thumbnail-item {
+    background-color: var(--light-gray-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.thumbnail-item:hover {
+    background-color: #e9e9e9;
+    transform: translateY(-3px);
+}
+
+.thumbnail-item.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--secondary-color);
+    box-shadow: 0 5px 15px rgba(13, 44, 79, 0.2);
+}
+
+.thumbnail-item i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.thumbnail-item span {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+}
+
+/* Seção de Diferenciais */
+.features-section {
+    padding: 80px 0;
+    background-color: var(--light-gray-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #fff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Catálogo de Produtos */
+.product-catalog-section {
+    padding: 80px 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.product-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.product-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-item:hover img {
+    transform: scale(1.1);
+}
+
+.product-item span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: #fff;
+    padding: 30px 15px 15px 15px;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .thumbnail-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
