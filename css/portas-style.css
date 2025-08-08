@@ -1,0 +1,175 @@
+/* ----------------------------------------------------------------
+   [Estilos Específicos para a Página "Modelos de Portas"]
+------------------------------------------------------------------- */
+
+/* Estilo do cabeçalho da página (reutilizável) */
+.page-header-section {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.page-header-section h1 {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.page-header-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    color: #c0bfbf;
+}
+
+/* Seção do Carrossel Horizontal */
+.scroller-section {
+    padding: 40px 0;
+    background-color: var(--light-gray-color);
+}
+
+.scroller {
+    max-width: 100%;
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+    mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+
+.scroller__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    padding-block: 1rem;
+}
+
+.scroller[data-animated="true"] {
+    overflow: hidden;
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+
+.scroller[data-speed="fast"] {
+  --_animation-duration: 20s;
+}
+
+/* VELOCIDADE AJUSTADA */
+.scroller[data-speed="slow"] {
+  --_animation-duration: 160s; /* Deixei muito mais lento */
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.75rem));
+  }
+}
+
+/* PAUSA INTELIGENTE CORRIGIDA */
+.scroller:hover .scroller__inner {
+    animation-play-state: paused;
+}
+
+.tag-list {
+    margin: 0;
+    padding-inline: 0;
+    list-style: none;
+}
+
+.tag-list li {
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease; /* Transição suave para o efeito de hover */
+}
+
+.tag-list img {
+    height: 300px;
+    width: auto;
+    max-width: none; /* Permite que a imagem mantenha sua proporção */
+    border-radius: 5px;
+}
+
+/* NOVO EFEITO DE FOCO E DESTAQUE */
+.scroller:hover .tag-list li {
+    opacity: 0.6; /* Diminui a opacidade das outras imagens */
+    transform: scale(0.98); /* Diminui levemente o tamanho das outras */
+}
+
+.scroller:hover .tag-list li:hover {
+    opacity: 1; /* Restaura a opacidade da imagem em foco */
+    transform: scale(1.4); /* Aumenta o tamanho da imagem em foco */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+
+/* Seção de Botões de Contato */
+.contact-buttons-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact-buttons-section h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.contact-buttons-section p {
+    font-size: 1.3rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 30px;
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-btn i {
+    font-size: 1.5rem;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+}
+.whatsapp-btn:hover {
+    background-color: #1DAE54;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.phone-btn {
+    background-color: var(--secondary-color);
+}
+.phone-btn:hover {
+    background-color: #c42f14;
+    color: #fff;
+    transform: translateY(-3px);
+}

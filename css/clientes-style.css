@@ -18,7 +18,7 @@
 }
 
 .stats-section .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.9;
     margin-bottom: 50px;
 }
@@ -38,6 +38,7 @@
 
 .stat-item .counter {
     font-family: var(--font-secondary);
+    color: #d6361a;
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1;
@@ -77,8 +78,8 @@
 }
 
 .client-logo-card img {
-    max-width: 160px;
-    max-height: 70px;
+    max-width: 190px;
+    max-height: 90px;
     object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.6;
