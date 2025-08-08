@@ -25,23 +25,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000); // Troca a imagem a cada 5 segundos
     }
 
+// --- Lógica do Contador Animado ---
+const counters = document.querySelectorAll('.counter');
 
-    // --- Lógica do Menu Hambúrguer ---
-    const hamburger = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('.main-nav');
+const activateCounters = () => {
+    counters.forEach(counter => {
+        // Garante que o contador só anime uma vez
+        if (counter.classList.contains('animated')) return;
+        counter.classList.add('animated');
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            // Alterna a classe 'active' no menu de navegação para mostrá-lo/escondê-lo
-            navMenu.classList.toggle('active');
-            
-            // Alterna a classe 'active' no botão hambúrguer para a animação "X"
-            hamburger.classList.toggle('active');
+        const targetAttr = counter.getAttribute('data-target');
+        // Extrai apenas o número do atributo para o cálculo da animação
+        const target = +targetAttr.replace(/[^0-9]/g, ''); 
 
-            // Atualiza o atributo aria-expanded para acessibilidade
-            const isExpanded = navMenu.classList.contains('active');
-            hamburger.setAttribute('aria-expanded', isExpanded);
-        });
-    }
+        counter.innerText = '0';
 
+        const updateCounter = () => {
+            const current = +counter.innerText;
+            // Define um incremento para a animação ser suave
+            const increment = target / 200; 
+
+            if (current < target) {
+                counter.innerText = `${Math.ceil(current + increment)}`;
+                setTimeout(updateCounter, 10);
+            } else {
+                // Ao final, define o texto como o atributo data-target original completo
+                counter.innerText = targetAttr; 
+            }
+        };
+        updateCounter();
+    });
+};
+
+// Cria um "observador" para ativar a animação quando a seção ficar visível
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            activateCounters();
+        }
+    });
+}, {
+    threshold: 0.5 // Ativa quando 50% da seção estiver visível
 });
+
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) {
+    observer.observe(statsSection);
+}
+});
+

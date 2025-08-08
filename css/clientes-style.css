@@ -1,0 +1,109 @@
+/* ----------------------------------------------------------------
+   [Estilos Específicos para a Página "Clientes" - v2]
+------------------------------------------------------------------- */
+
+/* Seção de Destaque com Estatísticas */
+.stats-section {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.stats-section h1 {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stats-section .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 50px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-item .counter {
+    font-family: var(--font-secondary);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-item .stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* Seção da Galeria de Clientes */
+.clients-gallery-section {
+    padding: 80px 0;
+    background-color: #f9f9f9; /* Um fundo um pouco diferente para a seção */
+}
+
+.clients-portfolio-container {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.07);
+}
+
+.clients-grid-unified {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.client-logo-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.client-logo-card img {
+    max-width: 160px;
+    max-height: 70px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.4s ease;
+}
+
+.client-logo-card:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .stats-section h1 {
+        font-size: 2.5rem;
+    }
+    .stat-item .counter {
+        font-size: 3rem;
+    }
+    .clients-portfolio-container {
+        padding: 30px;
+    }
+    .clients-grid-unified {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 30px;
+    }
+}
