@@ -1,0 +1,189 @@
+/* ----------------------------------------------------------------
+   [Estilos Específicos para a Página "Contato"]
+------------------------------------------------------------------- */
+
+/* Remove o rodapé e o botão flutuante desta página específica */
+body.contato-page .main-footer-bottom,
+body.contato-page .whatsapp-float-right {
+    display: none;
+}
+
+.contact-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 85px); /* Altura da tela menos o cabeçalho */
+}
+
+/* Coluna do Formulário */
+.form-column {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.form-header h1 {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.form-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 44, 79, 0.1);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 18px;
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #c42f14;
+    transform: translateY(-2px);
+}
+
+/* Mensagem de Sucesso */
+#form-success-message {
+    display: none; /* Começa escondida */
+    background-color: #28a745;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 700;
+}
+#form-success-message i {
+    margin-right: 10px;
+}
+
+/* NOVO: Estilo para Mensagem de Erro */
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+    height: 1em; /* Garante que o layout não "pule" */
+}
+
+
+/* Coluna do Mapa e Informações (LAYOUT CORRIGIDO) */
+.info-map-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-overlay-card {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 40px;
+}
+
+.info-overlay-card h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 15px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+.info-item span {
+    display: block;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.info-item a, .info-item p {
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+.info-item a:hover {
+    text-decoration: underline;
+}
+
+.info-map-column iframe {
+    width: 100%;
+    flex-grow: 1; /* Faz o mapa preencher o espaço restante */
+    border: none;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .contact-page-container {
+        grid-template-columns: 1fr;
+    }
+    .info-map-column {
+        order: -1; /* Coloca o mapa e info no topo em telas menores */
+    }
+    .info-map-column iframe {
+        height: 300px; /* Altura fixa para o mapa no mobile */
+        flex-grow: 0;
+    }
+    .form-column {
+        padding: 40px 20px;
+    }
+}

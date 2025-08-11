@@ -148,3 +148,92 @@ if (galleryContainer) {
     });
 }
 
+// --- Lógica do Formulário de Contato ---
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    // Adiciona a classe ao body para os estilos específicos
+    document.body.classList.add('contato-page');
+
+    const successMessage = document.getElementById('form-success-message');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
+
+    // Máscara para o telefone (XX) XXXXX-XXXX
+    phoneInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        value = value.substring(0, 11);
+        let formattedValue = '';
+
+        if (value.length > 0) {
+            formattedValue = `(${value.substring(0, 2)}`;
+        }
+        if (value.length > 2) {
+            if (value.length > 10) { // Celular com 9 dígitos
+                formattedValue += `) ${value.substring(2, 7)}-${value.substring(7, 11)}`;
+            } else { // Fixo ou celular com 8 dígitos
+                formattedValue += `) ${value.substring(2, 6)}-${value.substring(6, 10)}`;
+            }
+        }
+        e.target.value = formattedValue;
+    });
+
+    // Função de validação de e-mail
+    const validateEmail = () => {
+        const email = emailInput.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (email.length === 0) {
+            emailInput.style.borderColor = '#ddd';
+            if (emailError) emailError.textContent = '';
+            return true; // Campo vazio é válido até ser obrigatório no submit
+        }
+
+        if (!emailRegex.test(email)) {
+            emailInput.style.borderColor = '#dc3545'; // Vermelho
+            if (emailError) emailError.textContent = 'Por favor, insira um formato de e-mail válido.';
+            return false;
+        } else {
+            emailInput.style.borderColor = '#28a745'; // Verde
+            if (emailError) emailError.textContent = '';
+            return true;
+        }
+    };
+
+    emailInput.addEventListener('input', validateEmail);
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Impede o envio padrão
+
+        // Validação final antes de "enviar"
+        const isEmailValid = validateEmail();
+        // Verifica também se os campos obrigatórios não estão vazios
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        let allFieldsValid = true;
+        requiredFields.forEach(field => {
+            if (!field.value) {
+                field.style.borderColor = '#dc3545';
+                allFieldsValid = false;
+            }
+        });
+
+        if (!isEmailValid || !allFieldsValid) {
+            return; // Impede o envio se algo for inválido
+        }
+
+        // Simulação de envio bem-sucedido
+        successMessage.style.display = 'block';
+        contactForm.style.display = 'none';
+
+        // Opcional: resetar após alguns segundos
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+            contactForm.style.display = 'block';
+            contactForm.reset();
+            // Reseta a cor da borda dos campos
+            requiredFields.forEach(field => field.style.borderColor = '#ddd');
+        }, 5000); // Mostra a mensagem por 5 segundos
+    });
+}
+
